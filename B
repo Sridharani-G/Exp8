@@ -1,0 +1,21 @@
+PROGRAM:
+using System;
+using System.Reflection;
+class Program
+{
+ static void Main()
+ {
+ string path = @"C:\MathLibrary\bin\Debug\MathLibrary.dll";
+ Assembly assembly = Assembly.LoadFrom(path);
+ Console.WriteLine("Assembly Information");
+ Console.WriteLine("--------------------");
+ Console.WriteLine("Assembly Name: " + assembly.GetName().Name);
+ Console.WriteLine("Full Name: " + assembly.FullName);
+ Console.WriteLine("Version: " + assembly.GetName().Version);
+Console.WriteLine("\nPublic Types:");
+ foreach (Type type in assembly.GetExportedTypes())
+ {
+ Console.WriteLine(type.FullName);
+ }
+ }
+}
